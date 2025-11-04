@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio cá nhân của Trần Hồ Hoàng Vũ, sinh viên ngành Computer Science, showcase các dự án, kỹ năng lập trình, và blog kỹ thuật.">
+  <meta name="keywords" content="portfolio, computer science, lập trình, web development, blog, Trần Hồ Hoàng Vũ">
+  <meta name="author" content="Trần Hồ Hoàng Vũ">
+  <meta property="og:title" content="Trần Hồ Hoàng Vũ - Portfolio">
+  <meta property="og:description" content="Portfolio cá nhân của Trần Hồ Hoàng Vũ, sinh viên ngành Computer Science, showcase các dự án và kỹ năng lập trình.">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  <meta property="og:url" content="https://yourusername.github.io">
+  <title>Trần Hồ Hoàng Vũ - Portfolio</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+  <!-- Particle Background (for Home Section) -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="bg-white dark:bg-gray-800 shadow-lg fixed w-full z-20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">Portfolio</a>
+      <div class="flex items-center space-x-6 text-sm font-medium md:flex hidden" id="nav-links">
+        <a href="#home" class="relative hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Trang chủ<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span></a>
+        <a href="#about" class="relative hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Giới thiệu<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span></a>
+        <a href="#projects" class="relative hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Dự án<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span></a>
+        <a href="#skills" class="relative hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Kỹ năng<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span></a>
+        <a href="#blog" class="relative hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Blog<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span></a>
+        <a href="#contact" class="relative hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Liên hệ<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span></a>
+        <button id="theme-toggle" aria-label="Chuyển đổi chế độ sáng/tối" class="p-2 rounded-full hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">
+          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-900 dark:text-white hidden dark:inline-block">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <svg id="moon-icon" class="w-6 h-6 text-gray-900 dark:text-white inline-block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+        </button>
+      </div>
+      <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400" aria-label="Mở menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transform translate-y-[-100%] transition-transform duration-500">
+      <div class="flex flex-col items-center space-y-4 py-4">
+        <a href="#home" class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Trang chủ</a>
+        <a href="#about" class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Giới thiệu</a>
+        <a href="#projects" class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Dự án</a>
+        <a href="#skills" class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Kỹ năng</a>
+        <a href="#blog" class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Blog</a>
+        <a href="#contact" class="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-indigo-400 dark:hover:to-purple-400 transition-all duration-300">Liên hệ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-purple-700 dark:from-indigo-900 dark:to-purple-950 text-white relative overflow-hidden">
+    <div class="text-center section-hidden px-4 animate-typing">
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tight overflow-hidden">
+        <span class="inline-block animate-type">Trần Hồ Hoàng Vũ</span>
+      </h1>
+      <p class="text-xl sm:text-2xl md:text-3xl mb-8 font-light animate-slide-in">Sinh viên ngành Computer Science | Chuyên về phát triển phần mềm & AI</p>
+      <div class="space-x-4">
+        <a href="#projects" class="relative bg-white text-indigo-600 dark:bg-gray-800 dark:text-indigo-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-100 dark:hover:bg-gray-700 transition transform hover:scale-105 overflow-hidden group">
+          <span class="relative z-10">Xem dự án</span>
+          <span class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+        </a>
+        <a href="/assets/cv.pdf" download class="relative bg-transparent border-2 border-white dark:border-gray-300 text-white dark:text-gray-300 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-indigo-600 dark:hover:bg-gray-700 dark:hover:text-indigo-400 transition transform hover:scale-105 overflow-hidden group">
+          <span class="relative z-10">Tải CV</span>
+          <span class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-white dark:bg-gray-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-hidden">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 animate-slide-in">Giới thiệu</h2>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
+        <div class="relative group flex-shrink-0 animate-zoom-in">
+          <img src="/assets/profile.jpg" alt="Ảnh cá nhân của Trần Hồ Hoàng Vũ" class="w-64 h-64 rounded-full object-cover shadow-xl transition-transform duration-500 group-hover:animate-pulse border-4 border-indigo-200 dark:border-indigo-900">
+          <div class="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-indigo-400 transition-all duration-300"></div>
+        </div>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed text-justify flex-1 animate-slide-in-right max-w-2xl">
+          Tôi tên là Trần Hồ Hoàng Vũ, hiện là sinh viên năm 4 ngành Computer Science tại Trường Đại học Tôn Đức Thắng. Với đam mê mãnh liệt trong lập trình và công nghệ, tôi đã tham gia nhiều dự án liên quan đến phát triển web, trí tuệ nhân tạo, và ứng dụng di động. Mục tiêu của tôi là xây dựng các giải pháp công nghệ sáng tạo, mang lại giá trị thực tiễn. Tôi luôn học hỏi và phát triển kỹ năng để trở thành một kỹ sư phần mềm xuất sắc.
+        </p>
+      </div>
+      <div class="mt-10 flex justify-center gap-8">
+        <a href="https://www.facebook.com/TranHoHoangVu" target="_blank" class="text-blue-600 hover:text-blue-800 transform hover:rotate-12 transition duration-300" aria-label="Facebook của Trần Hồ Hoàng Vũ">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12.07C22 6.58 17.52 2 12 2S2 6.58 2 12.07C2 17.08 5.66 21.2 10.44 21.95v-6.28h-3.14v-2.7h3.14v-2.05c0-3.1 1.84-4.81 4.65-4.81 1.35 0 2.75.24 2.75.24v3.01h-1.55c-1.53 0-2.01.95-2.01 1.92v2.22h3.41l-.55 2.7h-2.86V22C18.34 21.2 22 17.08 22 12.07z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/_hoawq.vuz_/" target="_blank" class="text-pink-500 hover:text-pink-600 transform hover:rotate-12 transition duration-300" aria-label="Instagram của Trần Hồ Hoàng Vũ">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm4.38-.63a1.13 1.13 0 1 1 0 2.25 1.13 1.13 0 0 1 0-2.25Z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/tranhohoangvu" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-black transform hover:rotate-12 transition duration-300" aria-label="GitHub của Trần Hồ Hoàng Vũ">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.64 2 12.29c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.63-3.37-1.4-3.37-1.4-.45-1.18-1.1-1.49-1.1-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.58 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.16-4.56-5.17 0-1.14.39-2.08 1.03-2.82-.1-.25-.45-1.29.1-2.7 0 0 .84-.28 2.75 1.07a9.21 9.21 0 0 1 5 0c1.91-1.35 2.75-1.07 2.75-1.07.55 1.41.2 2.45.1 2.7.64.74 1.03 1.68 1.03 2.82 0 4.02-2.34 4.9-4.57 5.15.36.32.68.95.68 1.91 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.29 10.29 0 0 0 22 12.29C22 6.64 17.52 2 12 2Z"/>
+          </svg>
+        </a>
+        <a href="mailto:hoangvu2k4cmg@gmail.com" class="text-indigo-600 hover:text-indigo-800 transform hover:rotate-12 transition duration-300" aria-label="Gửi email cho Trần Hồ Hoàng Vũ">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12a2 2 0 0 1-2 2H4c-1.1 0-2-.9-2-2V6a2 2 0 0 1 2-2Zm8 7 8-5H4l8 5Zm0 2.5-8-5V18h16v-9.5l-8 5Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-hidden">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 animate-slide-in">Dự án</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-500 hover:rotate-y-10">
+          <div class="relative overflow-hidden">
+            <img src="/assets/project1.jpg" alt="Ứng dụng quản lý công việc" class="w-full h-48 object-cover transform transition-transform duration-1000 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Ứng dụng quản lý công việc</h3>
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">React</span>
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">Tailwind CSS</span>
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">Firebase</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Một ứng dụng web giúp người dùng quản lý công việc hàng ngày.</p>
+            <a href="https://github.com/tranhohoangvu/project1" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Xem trên GitHub</a>
+          </div>
+        </div>
+        <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-500 hover:rotate-y-10">
+          <div class="relative overflow-hidden">
+            <img src="/assets/project2.jpg" alt="Trò chơi Tetris" class="w-full h-48 object-cover transform transition-transform duration-1000 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Trò chơi Tetris</h3>
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">JavaScript</span>
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">HTML5 Canvas</span>
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">p5.js</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Một phiên bản Tetris tương tác.</p>
+            <a href="https://github.com/tranhohoangvu/project2" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Xem trên GitHub</a>
+          </div>
+        </div>
+        <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-500 hover:rotate-y-10">
+          <div class="relative overflow-hidden">
+            <img src="/assets/project3.jpg" alt="Chatbot AI" class="w-full h-48 object-cover transform transition-transform duration-1000 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Chatbot AI</h3>
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">Python</span>
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">NLP</span>
+              <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-2 py-1 rounded-full animate-pulse">TensorFlow</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Chatbot sử dụng NLP để trả lời các câu hỏi cơ bản.</p>
+            <a href="https://github.com/tranhohoangvu/project3" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Xem trên GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 bg-white dark:bg-gray-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-hidden">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 animate-slide-in">Kỹ năng</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 skills-carousel">
+        <div class="text-center bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm transform hover:scale-105 transition-transform duration-300">
+          <svg class="w-12 h-12 mx-auto mb-4 text-indigo-600 dark:text-indigo-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+          <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Lập trình</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">Python, JavaScript, Java, C++</p>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full animate-progress" style="width: 0%" data-progress="90"></div>
+          </div>
+        </div>
+        <div class="text-center bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm transform hover:scale-105 transition-transform duration-300">
+          <svg class="w-12 h-12 mx-auto mb-4 text-indigo-600 dark:text-indigo-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8M21 4H3v16h18V4z"></path>
+          </svg>
+          <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Web Development</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">HTML, CSS, React, Node.js</p>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full animate-progress" style="width: 0%" data-progress="85"></div>
+          </div>
+        </div>
+        <div class="text-center bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm transform hover:scale-105 transition-transform duration-300">
+          <svg class="w-12 h-12 mx-auto mb-4 text-indigo-600 dark:text-indigo-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+          </svg>
+          <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Database</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">SQL, MongoDB, Firebase</p>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full animate-progress" style="width: 0%" data-progress="80"></div>
+          </div>
+        </div>
+        <div class="text-center bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm transform hover:scale-105 transition-transform duration-300">
+          <svg class="w-12 h-12 mx-auto mb-4 text-indigo-600 dark:text-indigo-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+          </svg>
+          <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Công cụ</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-2">Git, Docker, VS Code, Figma</p>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full animate-progress" style="width: 0%" data-progress="75"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="py-24 bg-gray-50 dark:bg-gray-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-hidden">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 animate-slide-in">Blog</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
+          <div class="relative overflow-hidden">
+            <img src="/assets/blog1.jpg" alt="Hành trình học React" class="w-full h-48 object-cover transform transition-transform duration-1000 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Hành trình học React</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2 animate-fade-in">Đăng ngày: 01/07/2025</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Chia sẻ kinh nghiệm tự học React và cách xây dựng ứng dụng đầu tiên.</p>
+            <a href="/blog/react-journey" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Đọc thêm</a>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
+          <div class="relative overflow-hidden">
+            <img src="/assets/blog2.jpg" alt="Tối ưu hóa hiệu suất web" class="w-full h-48 object-cover transform transition-transform duration-1000 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Tối ưu hóa hiệu suất web</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2 animate-fade-in">Đăng ngày: 05/07/2025</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Các kỹ thuật tối ưu hóa tốc độ tải trang web với Lighthouse.</p>
+            <a href="/blog/web-performance" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Đọc thêm</a>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
+          <div class="relative overflow-hidden">
+            <img src="/assets/blog3.jpg" alt="Giới thiệu về AI và NLP" class="w-full h-48 object-cover transform transition-transform duration-1000 hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Giới thiệu về AI và NLP</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2 animate-fade-in">Đăng ngày: 10/07/2025</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Tổng quan về xử lý ngôn ngữ tự nhiên và ứng dụng trong chatbot.</p>
+            <a href="/blog/ai-nlp" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Đọc thêm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Commits Section -->
+  <section id="github" class="py-24 bg-white dark:bg-gray-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-hidden">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 animate-slide-in">Hoạt động GitHub</h2>
+      <div id="github-commits" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-sm relative">
+        <div id="github-loading" class="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-700 opacity-75">
+          <div class="w-full space-y-4">
+            <div class="h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+            <div class="h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse w-3/4"></div>
+            <div class="h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse w-1/2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-gray-50 dark:bg-gray-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-hidden">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 animate-slide-in">Liên hệ</h2>
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/2">
+          <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 animate-slide-in">Hãy liên hệ với tôi qua email hoặc các nền tảng sau:</p>
+          <div class="space-y-6">
+            <p><strong>Email:</strong> <a href="mailto:hoangvu2k4cmg@gmail.com" class="text-indigo-600 dark:text-indigo-400 hover:underline">hoangvu2k4cmg@gmail.com</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/tranhohoangvu" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline">github.com/tranhohoangvu</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline">linkedin.com/in/yourusername</a></p>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6" id="contact-form">
+            <div class="relative">
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Họ tên</label>
+              <input type="text" id="name" name="name" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 transition-all duration-300" required>
+              <div class="absolute inset-0 pointer-events-none rounded-lg ripple"></div>
+            </div>
+            <div class="relative">
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+              <input type="email" id="email" name="email" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 transition-all duration-300" required>
+              <div class="absolute inset-0 pointer-events-none rounded-lg ripple"></div>
+            </div>
+            <div class="relative">
+              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tin nhắn</label>
+              <textarea id="message" name="message" rows="5" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 transition-all duration-300" required></textarea>
+              <div class="absolute inset-0 pointer-events-none rounded-lg ripple"></div>
+            </div>
+            <button type="submit" class="relative bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-700 dark:hover:bg-indigo-500 transition transform hover:scale-105 overflow-hidden group">
+              <span class="relative z-10">Gửi tin nhắn</span>
+              <span class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+            </button>
+            <p id="form-message" class="text-sm text-gray-600 dark:text-gray-300 hidden animate-pop-up"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 dark:bg-gray-950 text-white py-12 text-center relative">
+    <p class="text-lg relative inline-block">
+      <span class="sparkle">Tạo giá trị qua mã nguồn - Trần Hồ Hoàng Vũ</span>
+    </p>
+    <p class="mt-2">© 2025 Trần Hồ Hoàng Vũ. All rights reserved.</p>
+    <div class="mt-4 space-x-6">
+      <a href="https://github.com/tranhohoangvu" target="_blank" class="relative hover:text-indigo-400 transition transform hover:scale-110">
+        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.64 2 12.29c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.63-3.37-1.4-3.37-1.4-.45-1.18-1.1-1.49-1.1-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.58 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.16-4.56-5.17 0-1.14.39-2.08 1.03-2.82-.1-.25-.45-1.29.1-2.7 0 0 .84-.28 2.75 1.07a9.21 9.21 0 0 1 5 0c1.91-1.35 2.75-1.07 2.75-1.07.55 1.41.2 2.45.1 2.7.64.74 1.03 1.68 1.03 2.82 0 4.02-2.34 4.9-4.57 5.15.36.32.68.95.68 1.91 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.29 10.29 0 0 0 22 12.29C22 6.64 17.52 2 12 2Z"/>
+        </svg>
+        GitHub
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" class="relative hover:text-indigo-400 transition transform hover:scale-110">
+        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+        </svg>
+        LinkedIn
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Quay lại đầu trang" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:scale-110 transition transform fixed bottom-20 right-20 z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="js/scripts.js"></script>
+</body>
+</html>
