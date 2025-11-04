@@ -158,19 +158,4 @@ Trang web của bạn sẽ hiển thị tại:
 
 ---
 
-## 🖼️ Gợi ý banner (tuỳ chọn)
-
-Nếu bạn muốn thêm **banner đầu trang** để nhìn nổi bật hơn khi mở README:
-
-```html
-<p align="center">
-  <img src="assets/og-image.jpg" alt="Portfolio – Tran Ho Hoang Vu" width="800" style="border-radius:12px;">
-</p>
-```
-
-> Banner nên có tông màu trầm (đen, xám, trắng) với dòng chữ:  
-> **"Trần Hồ Hoàng Vũ — Portfolio"**
-
----
-
 > 📍 *Last updated: November 2025*
