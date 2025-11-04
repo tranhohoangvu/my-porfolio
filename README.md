@@ -60,8 +60,8 @@ portfolio/
 ### 🧱 Chuẩn bị
 
 - Thay thế các placeholder (nếu còn) bằng thông tin thật:
-  - `yourusername` → `hoangvu04`
-  - `your.email@example.com` → `tranhohoangvu04@gmail.com`
+  - `yourusername` → `hoangvu2k4`
+  - `your.email@example.com` → `hoangvu2k4cmg@gmail.com`
   - `your-form-id` → Form ID thực tế từ Formspree
 - Tải ảnh đại diện, ảnh dự án, blog, và CV thật vào thư mục `/assets/`.
 
@@ -80,7 +80,7 @@ portfolio/
 
 📍 **Kết quả:**  
 Trang web của bạn sẽ hiển thị tại:  
-👉 [https://hoangvu04.github.io/](https://hoangvu04.github.io/)
+👉 [https://tranhohoangvu.github.io/my-porfolio/](https://tranhohoangvu.github.io/my-porfolio/)
 
 ---
 
@@ -141,9 +141,9 @@ Trang web của bạn sẽ hiển thị tại:
 
 | Thông tin | Liên kết |
 |------------|-----------|
-| ✉️ **Email** | [tranhohoangvu04@gmail.com](mailto:tranhohoangvu04@gmail.com) |
-| 🐙 **GitHub** | [github.com/hoangvu04](https://github.com/hoangvu04) |
-| 💼 **LinkedIn** | [linkedin.com/in/tranhohoangvu](https://linkedin.com/in/tranhohoangvu) |
+| ✉️ **Email** | [hoangvu2k4cmg@gmail.com](mailto:hoangvu2k4cmg@gmail.com) |
+| 🐙 **GitHub** | [github.com/tranhohoangvu](https://github.com/tranhohoangvu) |
+| 💼 **LinkedIn** | [linkedin.com/in/tranhohoangvu/](https://linkedin.com/in/tranhohoangvu/) |
 | 🧾 **CV PDF** | [Xem tại đây](./assets/cv.pdf) |
 
 ---
