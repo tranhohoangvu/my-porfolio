@@ -91,29 +91,21 @@ async function fetchGitHubCommits() {
   const commitsContainer = document.getElementById('github-commits');
   const loading = document.getElementById('github-loading');
   try {
-    const response = await fetch('https://api.github.com/repos/tranhohoangvu/your-repo/commits?per_page=5');
+    const response = await fetch("https://api.github.com/repos/hoangvu0402/portfolio/commits");
+    if (!response.ok) throw new Error("Không thể tải dữ liệu");
     const commits = await response.json();
-    commitsContainer.innerHTML = '';
-    loading.style.display = 'none';
-    if (commits.length === 0) {
-      commitsContainer.innerHTML = '<p class="text-gray-600 dark:text-gray-300">Không có commit nào để hiển thị.</p>';
-      return;
-    }
-    commits.forEach((commit, index) => {
-      const commitElement = document.createElement('div');
-      commitElement.className = `mb-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm animate-slide-in-${index % 2 === 0 ? 'left' : 'right'}`;
-      commitElement.innerHTML = `
-        <p class="text-gray-900 dark:text-gray-100 font-semibold">${commit.commit.message}</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm">Commit bởi ${commit.commit.author.name} vào ${new Date(commit.commit.author.date).toLocaleDateString()}</p>
-        <a href="${commit.html_url}" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">Xem commit</a>
-      `;
-      commitsContainer.appendChild(commitElement);
-    });
+
+    commitsContainer.innerHTML = commits.slice(0, 5).map(c => `
+      <div class="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 mb-2 animate-pop-up border border-transparent hover:border-indigo-500">
+        <p class="font-medium text-indigo-600 dark:text-indigo-400">${c.commit.message}</p>
+        <p class="text-sm text-gray-500 mt-1">${c.commit.author.name} • ${new Date(c.commit.author.date).toLocaleDateString('vi-VN')}</p>
+      </div>
+    `).join("");
   } catch (error) {
-    loading.style.display = 'none';
-    commitsContainer.innerHTML = '<p class="text-gray-600 dark:text-gray-300">Lỗi khi tải commit từ GitHub.</p>';
+    commitsContainer.innerHTML = `<p class="text-red-500">Lỗi khi tải commit từ GitHub.</p>`;
   }
 }
+
 
 fetchGitHubCommits();
 
