@@ -17,15 +17,12 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
           contributionDays {
             contributionCount
             date
-            weekday
           }
         }
         months {
           name
           firstDay
-          totalWeeks
         }
-        totalContributions
       }
     }
   }
@@ -64,19 +61,14 @@ def level_from_count(count: int, max_count: int) -> int:
   return 4
 
 def render_svg(weeks, months, palette, title: str) -> str:
-  # layout tương tự GitHub
-  cell = 10
-  gap = 2
+  cell, gap = 10, 2
   step = cell + gap
 
-  x0 = 30   # chừa chỗ label bên trái (để nhìn “github-ish”)
-  y0 = 20
-
+  x0, y0 = 30, 20
   weeks_count = len(weeks)
   width  = x0 + weeks_count * step + 10
   height = y0 + 7 * step + 20
 
-  # map date -> week index
   date_to_week = {}
   all_days = []
   for wi, w in enumerate(weeks):
@@ -86,11 +78,9 @@ def render_svg(weeks, months, palette, title: str) -> str:
 
   max_count = max((d["contributionCount"] for d in all_days), default=0)
 
-  # month labels
   month_texts = []
   for m in months:
-    first = m["firstDay"]
-    wi = date_to_week.get(first)
+    wi = date_to_week.get(m["firstDay"])
     if wi is None:
       continue
     mx = x0 + wi * step
@@ -133,7 +123,7 @@ def main():
 
   now = datetime.now(timezone.utc)
   to_dt = now
-  from_dt = now - timedelta(days=370)  # ~53 tuần
+  from_dt = now - timedelta(days=370)
 
   data = gql(token, {
     "login": username,
@@ -145,11 +135,14 @@ def main():
   weeks = cal["weeks"]
   months = cal["months"]
 
-  light_svg = render_svg(weeks, months, LIGHT, f"{username} GitHub Contributions (Light)")
-  dark_svg  = render_svg(weeks, months, DARK,  f"{username} GitHub Contributions (Dark)")
-
-  (out_dir / "github-contrib-light.svg").write_text(light_svg, encoding="utf-8")
-  (out_dir / "github-contrib-dark.svg").write_text(dark_svg, encoding="utf-8")
+  (out_dir / "github-contrib-light.svg").write_text(
+    render_svg(weeks, months, LIGHT, f"{username} Contributions (Light)"),
+    encoding="utf-8"
+  )
+  (out_dir / "github-contrib-dark.svg").write_text(
+    render_svg(weeks, months, DARK, f"{username} Contributions (Dark)"),
+    encoding="utf-8"
+  )
 
   print("Generated:", out_dir / "github-contrib-light.svg")
   print("Generated:", out_dir / "github-contrib-dark.svg")
