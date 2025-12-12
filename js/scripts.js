@@ -16,10 +16,57 @@ function setGitHubActivityImages() {
     ? `assets/github-contrib-dark.svg?v=${v}`
     : `assets/github-contrib-light.svg?v=${v}`;
 
-  // Activity Graph: bạn có thể giữ cái đang dùng (nó đang đẹp)
+  // Activity Graph: giữ theme đang dùng
   const graphTheme = isDark ? "github-dark" : "github-compact";
   activityImg.src =
     `https://github-readme-activity-graph.vercel.app/graph?username=${GITHUB_USERNAME}&theme=${graphTheme}&hide_border=true`;
+}
+
+// =======================
+// Navbar Theme + Scroll Background FIX
+// (Fix: dark mode scroll -> navbar KHÔNG bị trắng)
+// =======================
+const navbar = document.getElementById("navbar");
+const html = document.documentElement;
+
+const NAV_SCROLL_Y = 50;
+
+// Những class nền có thể xuất hiện (để remove sạch)
+const NAV_BG_CLASSES = [
+  "bg-white", "bg-white/80", "bg-white/90",
+  "bg-gray-800", "bg-gray-800/80", "bg-gray-800/90",
+  "bg-gray-900", "bg-gray-900/80", "bg-gray-900/90",
+  "text-gray-900", "text-gray-100",
+  "backdrop-blur", "backdrop-blur-sm", "backdrop-blur-md", "backdrop-blur-lg",
+  "shadow-lg", "shadow-xl", "shadow-md", "shadow-sm", "shadow-none",
+  "scrolled" // nếu CSS cũ đang dùng scrolled thì remove luôn
+];
+
+function updateNavbarStyle() {
+  if (!navbar) return;
+
+  const isDark = html.classList.contains("dark");
+  const scrolled = window.scrollY > NAV_SCROLL_Y;
+
+  // Remove sạch các class nền cũ + scrolled cũ
+  navbar.classList.remove(...NAV_BG_CLASSES);
+
+  // Luôn đảm bảo màu chữ theo theme (đỡ bị “mù chữ”)
+  navbar.classList.add(isDark ? "text-gray-100" : "text-gray-900");
+
+  // Set nền theo scroll + theme
+  if (scrolled) {
+    navbar.classList.add(
+      isDark ? "bg-gray-900/90" : "bg-white/90",
+      "backdrop-blur-md",
+      "shadow-lg"
+    );
+  } else {
+    navbar.classList.add(
+      isDark ? "bg-gray-800" : "bg-white",
+      "shadow-lg"
+    );
+  }
 }
 
 // =======================
@@ -28,7 +75,6 @@ function setGitHubActivityImages() {
 const themeToggle = document.getElementById('theme-toggle');
 const sunIcon = document.getElementById('sun-icon');
 const moonIcon = document.getElementById('moon-icon');
-const html = document.documentElement;
 
 function applyTheme(isDark) {
   if (isDark) {
@@ -45,6 +91,9 @@ function applyTheme(isDark) {
 
   // cập nhật 2 biểu đồ GitHub theo theme
   setGitHubActivityImages();
+
+  // ✅ cập nhật navbar theo theme + scroll hiện tại
+  updateNavbarStyle();
 }
 
 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -113,14 +162,23 @@ if (sections.length) {
 }
 
 // =======================
-// Navbar Scroll Effect
+// Navbar Scroll Effect (UPDATED)
 // =======================
-const navbar = document.getElementById('navbar');
 if (navbar) {
+  // chạy ngay 1 lần
+  updateNavbarStyle();
+
+  // tối ưu: dùng rAF để tránh giật
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  });
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateNavbarStyle();
+        ticking = false;
+      });
+    }
+  }, { passive: true });
 }
 
 // =======================
@@ -130,7 +188,7 @@ const backToTop = document.getElementById('back-to-top');
 if (backToTop) {
   window.addEventListener('scroll', () => {
     backToTop.style.display = (window.scrollY > 300) ? 'block' : 'none';
-  });
+  }, { passive: true });
 
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
