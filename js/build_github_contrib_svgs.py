@@ -7,8 +7,16 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 
+# GitHub official-ish palettes
 LIGHT = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
 DARK  = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+
+# Background + stroke (để ô trống không chìm vào nền)
+LIGHT_BG = "#ffffff"
+LIGHT_STROKE = "#d0d7de"
+
+DARK_BG = "#0d1117"       # nền dark của GitHub
+DARK_STROKE = "#30363d"   # viền ô trên GitHub dark
 
 QUERY = """
 query($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -18,6 +26,7 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
         weeks {
           contributionDays {
             contributionCount
+            contributionLevel
             date
           }
         }
@@ -30,6 +39,14 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
   }
 }
 """
+
+LEVEL_MAP = {
+  "NONE": 0,
+  "FIRST_QUARTILE": 1,
+  "SECOND_QUARTILE": 2,
+  "THIRD_QUARTILE": 3,
+  "FOURTH_QUARTILE": 4,
+}
 
 def gql(token: str, variables: dict) -> dict:
   req = Request(
@@ -48,21 +65,11 @@ def gql(token: str, variables: dict) -> dict:
     raise RuntimeError(f"GraphQL errors: {payload['errors']}")
   return payload["data"]
 
-def level_from_count(count: int, max_count: int) -> int:
-  if count <= 0:
-    return 0
-  if max_count <= 0:
-    return 1
-  ratio = count / max_count
-  if ratio <= 0.25:
-    return 1
-  if ratio <= 0.50:
-    return 2
-  if ratio <= 0.75:
-    return 3
-  return 4
+def level_from_enum(level: str) -> int:
+  return LEVEL_MAP.get(level or "NONE", 0)
 
-def render_svg(weeks, months, palette, title: str) -> str:
+def render_svg(weeks, months, palette, title: str, bg: str, stroke: str) -> str:
+  # Layout gần giống GitHub calendar
   cell, gap = 10, 2
   step = cell + gap
 
@@ -71,15 +78,13 @@ def render_svg(weeks, months, palette, title: str) -> str:
   width  = x0 + weeks_count * step + 10
   height = y0 + 7 * step + 20
 
+  # Map date -> week index để đặt label tháng
   date_to_week = {}
-  all_days = []
   for wi, w in enumerate(weeks):
     for d in w["contributionDays"]:
       date_to_week[d["date"]] = wi
-      all_days.append(d)
 
-  max_count = max((d["contributionCount"] for d in all_days), default=0)
-
+  # Month labels
   month_texts = []
   for m in months:
     wi = date_to_week.get(m["firstDay"])
@@ -90,21 +95,27 @@ def render_svg(weeks, months, palette, title: str) -> str:
       f'<text x="{mx}" y="12" font-size="10" fill="#94a3b8">{m["name"]}</text>'
     )
 
+  # Background (giúp tách calendar khỏi nền card)
+  bg_rect = f'<rect x="0" y="0" width="{width}" height="{height}" fill="{bg}" rx="8" ry="8"/>'
+
+  # Cells
   rects = []
   for wi, w in enumerate(weeks):
     for di, d in enumerate(w["contributionDays"]):
-      lv = level_from_count(d["contributionCount"], max_count)
+      lv = level_from_enum(d.get("contributionLevel"))
       x = x0 + wi * step
       y = y0 + di * step
       fill = palette[lv]
       rects.append(
-        f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" ry="2" fill="{fill}">'
+        f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" ry="2" '
+        f'fill="{fill}" stroke="{stroke}" stroke-width="1">'
         f'<title>{d["date"]}: {d["contributionCount"]} contributions</title>'
         f'</rect>'
       )
 
   return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">
   <title>{title}</title>
+  {bg_rect}
   {"".join(month_texts)}
   {"".join(rects)}
 </svg>
@@ -125,7 +136,7 @@ def main():
 
   now = datetime.now(timezone.utc)
   to_dt = now
-  from_dt = now - timedelta(days=370)
+  from_dt = now - timedelta(days=370)  # ~53 tuần
 
   data = gql(token, {
     "login": username,
@@ -138,11 +149,11 @@ def main():
   months = cal["months"]
 
   (out_dir / "github-contrib-light.svg").write_text(
-    render_svg(weeks, months, LIGHT, f"{username} Contributions (Light)"),
+    render_svg(weeks, months, LIGHT, f"{username} Contributions (Light)", LIGHT_BG, LIGHT_STROKE),
     encoding="utf-8"
   )
   (out_dir / "github-contrib-dark.svg").write_text(
-    render_svg(weeks, months, DARK, f"{username} Contributions (Dark)"),
+    render_svg(weeks, months, DARK, f"{username} Contributions (Dark)", DARK_BG, DARK_STROKE),
     encoding="utf-8"
   )
 
