@@ -34,7 +34,7 @@ portfolio/
 │   ├── blog1.jpg
 │   ├── blog2.jpg
 │   ├── blog3.jpg
-│   ├── cv.pdf
+│   ├── TranHoHoangVu_CV.pdf
 │   ├── favicon.png
 │   └── og-image.jpg
 ├── .gitignore
@@ -144,7 +144,7 @@ Trang web của bạn sẽ hiển thị tại:
 | ✉️ **Email** | [hoangvu2k4cmg@gmail.com](mailto:hoangvu2k4cmg@gmail.com) |
 | 🐙 **GitHub** | [github.com/tranhohoangvu](https://github.com/tranhohoangvu) |
 | 💼 **LinkedIn** | [linkedin.com/in/tranhohoangvu/](https://linkedin.com/in/tranhohoangvu/) |
-| 🧾 **CV PDF** | [Xem tại đây](./assets/cv.pdf) |
+| 🧾 **CV PDF** | [Xem tại đây](./assets/TranHoHoangVu_CV.pdf) |
 
 ---
 
