@@ -153,6 +153,7 @@ const I18N = {
     nav_github: "GitHub",
     nav_contact: "Liên hệ",
 
+    hero_name: "Trần Hồ Hoàng Vũ",
     hero_subtitle: "Sinh viên ngành Computer Science | Chuyên về phát triển phần mềm & AI",
     hero_btn_projects: "Xem dự án",
     hero_btn_cv: "Tải CV",
@@ -228,6 +229,7 @@ const I18N = {
     nav_github: "GitHub",
     nav_contact: "Contact",
 
+    hero_name: "Tran Ho Hoang Vu",
     hero_subtitle: "Computer Science Student | Software Engineering & AI",
     hero_btn_projects: "View projects",
     hero_btn_cv: "Download CV",
@@ -316,6 +318,15 @@ function applyLanguage(lang, persist = true) {
     const value = t(key);
     if (value == null) return;
     el.textContent = value;
+
+    // restart typing animation for hero name (optional)
+    const heroNameEl = document.querySelector('[data-i18n="hero_name"]');
+    if (heroNameEl) {
+      heroNameEl.classList.remove("animate-type");
+      // force reflow
+      void heroNameEl.offsetWidth;
+      heroNameEl.classList.add("animate-type");
+    }
   });
 
   // meta + title
