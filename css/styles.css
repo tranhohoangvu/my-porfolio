@@ -593,3 +593,71 @@ textarea:focus ~ .ripple::after {
 .dark .cert-card:hover{
   box-shadow: 0 18px 55px rgba(0,0,0,0.45);
 }
+
+/* =========================
+   Unified hover like Certificates
+   Apply to: Projects cards, Skills cards, GitHub cards
+   ========================= */
+.project-card,
+.skills-card--dark,
+#github .p-5.rounded-2xl{
+  position: relative;
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  will-change: transform;
+}
+
+/* default border in light */
+.project-card,
+.skills-card--dark,
+#github .p-5.rounded-2xl{
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* default border in dark */
+.dark .project-card,
+.dark .skills-card--dark,
+.dark #github .p-5.rounded-2xl{
+  border-color: rgba(255,255,255,0.22) !important;
+}
+
+.project-card:hover,
+.skills-card--dark:hover,
+#github .p-5.rounded-2xl:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+  border-color: rgba(99,102,241,0.65) !important; /* indigo-ish */
+}
+
+/* gradient border on hover (same vibe as cert-card) */
+.project-card::before,
+.skills-card--dark::before,
+#github .p-5.rounded-2xl::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #06b6d4);
+  opacity: 0;
+  pointer-events: none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition: opacity .35s ease;
+}
+
+.project-card:hover::before,
+.skills-card--dark:hover::before,
+#github .p-5.rounded-2xl:hover::before{
+  opacity: 1;
+}
+
+.dark .project-card:hover,
+.dark .skills-card--dark:hover,
+.dark #github .p-5.rounded-2xl:hover{
+  box-shadow: 0 18px 55px rgba(0,0,0,0.45);
+}
