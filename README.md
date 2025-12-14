@@ -1,161 +1,214 @@
-# 🌐 Portfolio của **Trần Hồ Hoàng Vũ**
+# 🌐 My Portfolio — Trần Hồ Hoàng Vũ
 
-> 🎓 *Sinh viên ngành Computer Science tại Đại học Tôn Đức Thắng (TDTU)*  
-> 💼 *Portfolio cá nhân showcase các dự án, kỹ năng lập trình và bài viết kỹ thuật.*
+[![Live Demo](https://tranhohoangvu.github.io/my-portfolio/)](https://tranhohoangvu.github.io/my-portfolio/)
 
----
+> 🎓 Final-year Computer Science student at Ton Duc Thang University (TDTU)  
+> 💼 Personal portfolio showcasing projects, skills, and GitHub activity (and optionally technical blog posts).
 
-## 🏗️ Giới thiệu
+A **static** portfolio website built with **HTML + Tailwind CSS + Vanilla JS**, featuring **Dark/Light mode** and **VI/EN** language toggle.
 
-Đây là **portfolio cá nhân** của **Trần Hồ Hoàng Vũ**, sinh viên ngành *Computer Science* tại *Đại học Tôn Đức Thắng*.  
-Website này được tạo ra để **giới thiệu bản thân, showcase các dự án, kỹ năng, và chia sẻ bài viết blog kỹ thuật**.  
-
-Mục tiêu của portfolio:
-- 🧠 Thể hiện năng lực lập trình và tư duy kỹ thuật.
-- 💻 Giới thiệu các dự án học tập, nghiên cứu, và cá nhân.
-- 📚 Ghi lại quá trình học và chia sẻ kiến thức công nghệ.
+- 🔗 **Live site:** [https://tranhohoangvu.github.io/my-portfolio/](https://tranhohoangvu.github.io/my-portfolio/)
+- 📄 **CV (PDF):** [`assets/TranHoHoangVu_CV.pdf`](./assets/TranHoHoangVu_CV.pdf) · **Online:** [https://tranhohoangvu.github.io/my-portfolio/assets/TranHoHoangVu_CV.pdf](https://tranhohoangvu.github.io/my-portfolio/assets/TranHoHoangVu_CV.pdf)
 
 ---
 
-## 🗂️ Cấu trúc thư mục
+## 📌 Table of Contents
 
-```bash
-portfolio/
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── scripts.js
-├── assets/
-│   ├── profile.jpg
-│   ├── project1.jpg
-│   ├── project2.jpg
-│   ├── project3.jpg
-│   ├── blog1.jpg
-│   ├── blog2.jpg
-│   ├── blog3.jpg
-│   ├── TranHoHoangVu_CV.pdf
-│   ├── favicon.png
-│   └── og-image.jpg
-├── .gitignore
-└── README.md
+- [✨ Highlights](#-highlights)
+- [🧰 Tech Stack](#-tech-stack)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Run Locally](#-run-locally)
+- [⚙️ Quick Customize](#️-quick-customize)
+- [🎨 Tailwind Build](#-tailwind-build-optional)
+- [🤖 GitHub Contributions SVG](#-github-contributions-svg-auto-update)
+- [🌍 Deploy to GitHub Pages](#-deploy-to-github-pages)
+- [🧠 Performance & SEO Tips](#-performance--seo-tips)
+- [🛠️ Updating Content](#️-updating-content)
+- [📫 Contact](#-contact)
+- [📄 License](#-license)
+
+---
+
+## ✨ Highlights
+
+- Responsive UI (mobile-first)
+- Dark / Light mode (persisted in `localStorage`, falls back to OS preference)
+- VI / EN i18n via `data-i18n` (`localStorage.lang`)
+- GitHub section
+  - Contributions heatmap SVG auto-generated (Light/Dark) and auto-committed by GitHub Actions
+  - Activity Graph rendered via `github-readme-activity-graph`
+- Contact form via Formspree (no backend required)
+- Smooth scroll + section reveal animations + back-to-top button
+- Basic SEO meta tags + OG image support (`assets/og-image.jpg`)
+
+---
+
+## 🧰 Tech Stack
+
+| Tech | Usage |
+|---|---|
+| HTML5 | Page structure |
+| Tailwind CSS (CLI) | Styling + responsive layout |
+| Vanilla JavaScript | Interactions, theme toggle, i18n |
+| GitHub Actions | GitHub Pages deploy + daily SVG updates |
+| Formspree | Contact form handling |
+
+---
+
+## 📁 Project Structure
+
+```txt
+my-portfolio/
+├─ index.html
+├─ assets/
+│  ├─ projects/
+│  ├─ github-contrib-light.svg
+│  ├─ github-contrib-dark.svg
+│  ├─ profile.jpg
+│  ├─ TranHoHoangVu_CV.pdf
+│  ├─ og-image.jpg
+│  └─ favicon.*
+├─ css/
+│  ├─ tailwind-input.css
+│  ├─ tailwind.css
+│  └─ styles.css
+├─ js/
+│  ├─ scripts.js
+│  └─ build_github_contrib_svgs.py
+├─ .github/workflows/
+│  ├─ static.yml
+│  └─ update-github-contrib.yml
+├─ package.json
+└─ package-lock.json
 ```
 
 ---
 
-## ⚙️ Công nghệ sử dụng
+## 🚀 Run Locally
 
-| 🧩 Công nghệ | 💡 Mục đích sử dụng |
-|--------------|----------------------|
-| **HTML5, CSS3, JavaScript** | Xây dựng giao diện và logic chính |
-| **Tailwind CSS** | Thiết kế UI nhanh, hiện đại và responsive |
-| **Google Fonts (Poppins)** | Font chữ chính, mang phong cách hiện đại |
-| **GitHub API** | Lấy thông tin commits, hoạt động GitHub |
-| **Formspree** | Xử lý biểu mẫu liên hệ qua email (không cần backend) |
+### Option 1: Open directly
+Open `index.html` in your browser.
 
----
+### Option 2: Local server (recommended)
+```bash
+python -m http.server 5500
+```
+Visit: `http://localhost:5500`
 
-## 🚀 Cách triển khai
-
-### 🧱 Chuẩn bị
-
-- Thay thế các placeholder (nếu còn) bằng thông tin thật:
-  - `yourusername` → `hoangvu2k4`
-  - `your.email@example.com` → `hoangvu2k4cmg@gmail.com`
-  - `your-form-id` → Form ID thực tế từ Formspree
-- Tải ảnh đại diện, ảnh dự án, blog, và CV thật vào thư mục `/assets/`.
+> Tip: VS Code **Live Server** also works well.
 
 ---
 
-### 🌍 Triển khai với GitHub Pages
+## ⚙️ Quick Customize
 
-1. Tạo repository mới trên GitHub, ví dụ: `hoangvu04.github.io`
-2. Đẩy toàn bộ mã nguồn lên repository:
-   ```bash
-   git add .
-   git commit -m "Initial commit - Portfolio by Tran Ho Hoang Vu"
-   git push origin main
-   ```
-3. Vào **Settings → Pages**, chọn branch `main` và folder `/ (root)`.
+### 1) GitHub username
+Update in `js/scripts.js`:
+```js
+const GITHUB_USERNAME = "tranhohoangvu";
+```
 
-📍 **Kết quả:**  
-Trang web của bạn sẽ hiển thị tại:  
-👉 [https://tranhohoangvu.github.io/my-portfolio/](https://tranhohoangvu.github.io/my-portfolio/)
+### 2) Contact form (Formspree)
+In `index.html`, update:
+```html
+<form action="https://formspree.io/f/xxxxxxx" method="POST">
+```
 
----
+### 3) Social links / content
+Edit directly in `index.html` and the i18n content inside `js/scripts.js`.
 
-### ⚡ Triển khai với Netlify
-
-1. Đăng nhập vào [Netlify](https://www.netlify.com/)
-2. Kết nối với repository GitHub của bạn (`hoangvu04/portfolio`)
-3. Cấu hình:
-   - **Build command:** `none`
-   - **Publish directory:** `/`
-4. Netlify sẽ tự động build và cung cấp link public ví dụ như:  
-   👉 `https://hoangvu-portfolio.netlify.app`
+### 4) Assets
+Replace images/CV in `assets/` (keep filenames if you don’t want to edit HTML).
 
 ---
 
-## 🧠 Tối ưu hóa
+## 🎨 Tailwind Build (Optional)
 
-| Hạng mục | Mục tiêu cải thiện |
-|-----------|--------------------|
-| ⚡ **Hiệu suất** | Dùng Lighthouse để phân tích tốc độ tải trang |
-| 🗜️ **Hình ảnh** | Nén ảnh bằng **TinyPNG**, **ImageOptim**, hoặc **Squoosh** |
-| 🔍 **SEO** | Thêm meta tags, tiêu đề rõ ràng và ảnh preview `og-image.jpg` |
-| 📈 **Phân tích truy cập** | Tích hợp **Google Analytics** |
-| 🌙 **Giao diện** | Thêm **Dark mode / Light mode toggle** để tăng trải nghiệm người dùng |
+Compiled CSS is already committed at `css/tailwind.css`.
 
----
+Rebuild:
+```bash
+npm install
+npx @tailwindcss/cli -i ./css/tailwind-input.css -o ./css/tailwind.css --minify
+```
 
-## 🧾 Cách cập nhật nội dung
-
-Để cập nhật nội dung cho portfolio:
-
-1. Mở file `index.html`  
-2. Cập nhật thông tin cá nhân, dự án hoặc bài viết blog trong các section tương ứng  
-3. Sửa file `scripts.js` nếu muốn thay đổi hành vi tương tác  
-4. Chạy lệnh build Tailwind (nếu có):
-   ```bash
-   npx tailwindcss -i ./css/styles.css -o ./dist/styles.min.css --minify
-   ```
-5. Commit và push lại lên GitHub:
-   ```bash
-   git add .
-   git commit -m "Update content and styles"
-   git push origin main
-   ```
+Watch:
+```bash
+npx @tailwindcss/cli -i ./css/tailwind-input.css -o ./css/tailwind.css --watch
+```
 
 ---
 
-## 💡 Mẹo & Lưu ý
+## 🤖 GitHub Contributions SVG (Auto Update)
 
-- ✅ Đặt tên ảnh có ý nghĩa (vd: `project-ecommerce.jpg`, `profile-vu.jpg`)  
-- 🧭 Thêm favicon để hiển thị biểu tượng trên tab trình duyệt  
-- 🧱 Nếu dùng framework khác (Next.js / React), giữ nguyên cấu trúc thư mục `/assets`  
-- 🧑‍💻 Kiểm tra giao diện trên nhiều thiết bị: desktop, tablet, mobile  
+Workflow: `.github/workflows/update-github-contrib.yml`
 
----
+- Runs daily (00:00 UTC)
+- Uses GitHub GraphQL API in `js/build_github_contrib_svgs.py`
+- Updates:
+  - `assets/github-contrib-light.svg`
+  - `assets/github-contrib-dark.svg`
+- Commits changes back to the repo automatically
 
-## 📫 Liên hệ
-
-| Thông tin | Liên kết |
-|------------|-----------|
-| ✉️ **Email** | [hoangvu2k4cmg@gmail.com](mailto:hoangvu2k4cmg@gmail.com) |
-| 🐙 **GitHub** | [github.com/tranhohoangvu](https://github.com/tranhohoangvu) |
-| 💼 **LinkedIn** | [linkedin.com/in/tranhohoangvu/](https://linkedin.com/in/tranhohoangvu/) |
-| 🧾 **CV PDF** | [Xem tại đây](./assets/TranHoHoangVu_CV.pdf) |
+If you fork/clone, ensure Actions are enabled and workflows have permission to write contents.
 
 ---
 
-## 🏁 Giấy phép & Bản quyền
+## 🌍 Deploy to GitHub Pages
 
-> © 2025 **Trần Hồ Hoàng Vũ** — All rights reserved.  
-> Made with ❤️ using **HTML**, **CSS**, **JavaScript**, and **Tailwind CSS**.  
->  
-> 📜 Nếu bạn tham khảo hoặc sử dụng phần code này, vui lòng ghi nguồn:  
-> “Portfolio Template by Trần Hồ Hoàng Vũ – TDTU”.
+Deployment is handled by `.github/workflows/static.yml` (GitHub Pages official workflow).
+
+1. Push to branch `main`
+2. Go to **Settings → Pages**
+3. Set Pages to deploy from **GitHub Actions**
+4. After the workflow completes, your site is live at:
+   - `https://<username>.github.io/<repo>/`
+
+✅ **This repo is currently deployed here:** [https://tranhohoangvu.github.io/my-portfolio/](https://tranhohoangvu.github.io/my-portfolio/)
+
+> 📄 CV (online): [https://tranhohoangvu.github.io/my-portfolio/assets/TranHoHoangVu_CV.pdf](https://tranhohoangvu.github.io/my-portfolio/assets/TranHoHoangVu_CV.pdf)
 
 ---
 
-> 📍 *Last updated: November 2025*
+## 🧠 Performance & SEO Tips
+
+- Compress images (e.g., Squoosh/TinyPNG) and prefer modern formats when possible
+- Keep hero images under ~300–500KB
+- Make sure `og-image.jpg` exists and is referenced in meta tags
+- Run Lighthouse to check performance/SEO/accessibility
+- (Optional) Add analytics (e.g., Google Analytics) if you want traffic insights
+
+---
+
+## 🛠️ Updating Content
+
+1. Edit `index.html` for text/sections/projects
+2. Update translations in `js/scripts.js` (I18N object + `data-i18n` keys)
+3. Replace images/CV under `assets/`
+4. (Optional) rebuild Tailwind
+5. Commit & push:
+```bash
+git add .
+git commit -m "Update content"
+git push origin main
+```
+
+---
+
+## 📫 Contact
+
+- 🐙 GitHub: [https://github.com/tranhohoangvu](https://github.com/tranhohoangvu)
+- 💼 LinkedIn: [https://linkedin.com/in/tranhohoangvu/](https://linkedin.com/in/tranhohoangvu/)
+- 🌐 Live site: [https://tranhohoangvu.github.io/my-portfolio/](https://tranhohoangvu.github.io/my-portfolio/)
+- 📄 CV (online): [https://tranhohoangvu.github.io/my-portfolio/assets/TranHoHoangVu_CV.pdf](https://tranhohoangvu.github.io/my-portfolio/assets/TranHoHoangVu_CV.pdf)
+- 📄 CV (repo): `./assets/TranHoHoangVu_CV.pdf`
+
+---
+
+## 📄 License
+
+Personal portfolio project.  
+If you reuse the template, please keep attribution or link back to the original repo.
+
+---
+
+> Last updated: December 2025
