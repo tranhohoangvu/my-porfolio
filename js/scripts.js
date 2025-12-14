@@ -160,7 +160,7 @@ const I18N = {
 
     about_title: "Giới thiệu",
     about_text:
-      "Tôi tên là Trần Hồ Hoàng Vũ, hiện là sinh viên năm 4 ngành Computer Science tại Trường Đại học Tôn Đức Thắng. Với đam mê mãnh liệt trong lập trình và công nghệ, tôi đã tham gia nhiều dự án liên quan đến phát triển web, trí tuệ nhân tạo, và ứng dụng di động. Mục tiêu của tôi là xây dựng các giải pháp công nghệ sáng tạo, mang lại giá trị thực tiễn. Tôi luôn học hỏi và phát triển kỹ năng để trở thành một kỹ sư phần mềm xuất sắc.",
+      "Tôi là Trần Hồ Hoàng Vũ, sinh viên năm cuối ngành Khoa học Máy tính tại Đại học Tôn Đức Thắng, định hướng phát triển trở thành Software Engineer theo hướng backend. Tôi thích biến ý tưởng thành những giải pháp rõ ràng, thực tế và liên tục cải thiện chúng qua từng lần làm. Trong thời gian tới, tôi muốn củng cố nền tảng kỹ thuật, rèn tư duy giải quyết vấn đề và xây dựng tư duy làm việc chuyên nghiệp—tập trung vào chất lượng, khả năng phối hợp và học hỏi không ngừng.",
 
     projects_title: "Dự án",
     projects_view_all: "Xem tất cả trên GitHub →",
@@ -239,7 +239,7 @@ const I18N = {
 
     about_title: "About",
     about_text:
-      "My name is Tran Ho Hoang Vu. I am a 4th-year Computer Science student at Ton Duc Thang University. Passionate about programming and technology, I have worked on multiple projects in web development, AI, and mobile applications. My goal is to build practical, innovative solutions and continuously grow into a strong software engineer.",
+      "My name is Tran Ho Hoang Vu. I’m a final-year Computer Science student at Ton Duc Thang University, working toward becoming a backend-focused software engineer. I enjoy turning ideas into clear, practical solutions and improving them through iteration. In the future, I want to strengthen my engineering fundamentals, sharpen my problem-solving skills, and build reliable systems with a professional mindset—focusing on quality, collaboration, and continuous learning.",
 
     projects_title: "Projects",
     projects_view_all: "View all on GitHub →",
