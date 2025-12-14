@@ -166,19 +166,22 @@ const I18N = {
     projects_view_all: "Xem tất cả trên GitHub →",
     view_on_github: "Xem trên GitHub →",
 
-    p1_meta: "Sep 2025 – Dec 2025 • Dự án môn học",
+    p1_meta: "Tháng 9, 2025 – Tháng 12, 2025 • Dự án môn học",
     p1_desc:
       "Nền tảng thương mại điện tử full-stack, tập trung backend: REST API, xác thực người dùng và luồng giỏ hàng/đơn hàng.",
+    p1_title: "Nền tảng E-commerce",
 
-    p2_meta: "Sep 2024 – Dec 2024 • Dự án môn học",
+    p2_meta: "Tháng 9, 2024 – Tháng 12, 2024 • Dự án môn học",
     p2_desc: "Phần mềm quản lý kho tòa nhà: theo dõi tồn kho, nhập/xuất và báo cáo vận hành.",
+    p2_title: "WarehouseMA",
     p2_tag1: "Tồn kho",
     p2_tag2: "Nhập/Xuất",
     p2_tag3: "Báo cáo",
     p2_tag4: "Tài liệu",
 
-    p3_meta: "Jan 2024 – May 2024 • Dự án môn học",
+    p3_meta: "Tháng 1, 2024 – Tháng 12, 2024 • Dự án môn học",
     p3_desc: "Hệ thống POS nội bộ cho cửa hàng điện thoại: bán hàng/checkout, quản lý kho và xuất hóa đơn PDF.",
+    p3_title: "Hệ thống POS Store.com",
     p3_tag4: "Xuất hóa đơn",
 
     skills_title: "Kỹ năng",
@@ -188,9 +191,9 @@ const I18N = {
     skills_note_auth: "(Auth/Phân quyền: mức cơ bản)",
 
     github_title: "Hoạt động GitHub",
-    github_contrib: "Contributions",
-    github_contrib_tip: "Contributions được tạo tự động từ GitHub GraphQL (Actions) và cập nhật định kỳ.",
-    github_activity: "Activity Graph",
+    github_contrib: "Tổng quan đóng góp",
+    github_contrib_tip: "Dữ liệu đóng góp được tạo tự động từ dữ liệu GitHub GraphQL (Actions) và được cập nhật định kỳ.",
+    github_activity: "Biểu đồ hoạt động",
     github_activity_tip: "Biểu đồ số lượng commit theo thời gian (tổng hợp từ dữ liệu GitHub).",
     github_profile_link: "Xem GitHub profile →",
 
@@ -245,9 +248,11 @@ const I18N = {
     p1_meta: "Sep 2025 – Dec 2025 • Course project",
     p1_desc:
       "Full-stack e-commerce platform with backend focus: REST APIs, user authentication, and cart/order flows.",
+    p1_title: "E-commerce Platform",
 
     p2_meta: "Sep 2024 – Dec 2024 • Course project",
     p2_desc: "Building warehouse management: inventory tracking, inbound/outbound, and operational reporting.",
+    p2_title: "WarehouseMA",
     p2_tag1: "Inventory",
     p2_tag2: "Inbound/Outbound",
     p2_tag3: "Reporting",
@@ -255,6 +260,7 @@ const I18N = {
 
     p3_meta: "Jan 2024 – May 2024 • Course project",
     p3_desc: "Internal POS for phone store: checkout, inventory management, and PDF invoice generation.",
+    p3_title: "Store.com POS System",
     p3_tag4: "Invoice PDF",
 
     skills_title: "Skills",
