@@ -1,6 +1,6 @@
 # 🌐 Portfolio của **Trần Hồ Hoàng Vũ**
 
-[![Live Demo](https://tranhohoangvu.github.io/my-portfolio/)](https://tranhohoangvu.github.io/my-portfolio/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-success)](https://tranhohoangvu.github.io/my-portfolio/)
 
 > 🎓 Sinh viên năm cuối ngành Computer Science tại Đại học Tôn Đức Thắng (TDTU)  
 > 💼 Portfolio cá nhân showcase dự án, kỹ năng và hoạt động GitHub (có thể mở rộng sang blog kỹ thuật).

@@ -1,6 +1,6 @@
 # 🌐 My Portfolio — Trần Hồ Hoàng Vũ
 
-[![Live Demo](https://tranhohoangvu.github.io/my-portfolio/)](https://tranhohoangvu.github.io/my-portfolio/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-success)](https://tranhohoangvu.github.io/my-portfolio/)
 
 > 🎓 Final-year Computer Science student at Ton Duc Thang University (TDTU)  
 > 💼 Personal portfolio showcasing projects, skills, and GitHub activity (and optionally technical blog posts).
