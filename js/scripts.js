@@ -1,4 +1,13 @@
 // =======================
+// Service Worker Registration
+// =======================
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+
+// =======================
 // GitHub Activity (Contributions + Graph)
 // =======================
 const GITHUB_USERNAME = "tranhohoangvu";
