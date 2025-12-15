@@ -32,15 +32,17 @@
 
 ## ✨ Tính năng nổi bật
 
-- Responsive (mobile-first)
-- Dark / Light mode (lưu `localStorage`, mặc định theo theme hệ điều hành)
-- i18n VI / EN qua `data-i18n` (`localStorage.lang`)
+- Giao diện responsive (mobile-first)
+- Chế độ Dark / Light (lưu trong `localStorage`, tự fallback theo tuỳ chọn hệ điều hành)
+- Đa ngôn ngữ VI / EN qua `data-i18n` (lưu trong `localStorage.lang`, bao gồm cả metadata của trang)
+- Showcase dự án kèm hình ảnh và liên kết nhanh
+- Các mục Kỹ năng & Chứng chỉ
 - Khu vực GitHub
-  - Contributions heatmap SVG auto-generate (Light/Dark) và tự commit bởi GitHub Actions
+  - SVG heatmap contributions tự động tạo cho Light/Dark và tự động commit bằng GitHub Actions
   - Activity Graph hiển thị bằng `github-readme-activity-graph`
 - Form liên hệ dùng Formspree (không cần backend)
-- Smooth scroll + hiệu ứng hiện section + nút back-to-top
-- Hỗ trợ SEO cơ bản + OG preview image (`assets/og-image.jpg`)
+- Cuộn mượt + hiệu ứng hiện section + nút back-to-top
+- SEO cơ bản: meta tags + ảnh OG (`assets/og-image.png`), kèm `robots.txt`, `sitemap.xml`, và trang `404.html` tùy chỉnh
 
 ---
 

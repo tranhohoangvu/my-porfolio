@@ -34,13 +34,15 @@ A **static** portfolio website built with **HTML + Tailwind CSS + Vanilla JS**, 
 
 - Responsive UI (mobile-first)
 - Dark / Light mode (persisted in `localStorage`, falls back to OS preference)
-- VI / EN i18n via `data-i18n` (`localStorage.lang`)
+- VI / EN i18n via `data-i18n` (saved in `localStorage.lang`, includes page metadata)
+- Projects showcase with images and quick links
+- Skills & Certificates sections
 - GitHub section
   - Contributions heatmap SVG auto-generated (Light/Dark) and auto-committed by GitHub Actions
   - Activity Graph rendered via `github-readme-activity-graph`
 - Contact form via Formspree (no backend required)
 - Smooth scroll + section reveal animations + back-to-top button
-- Basic SEO meta tags + OG image support (`assets/og-image.jpg`)
+- SEO essentials: meta tags + OG image (`assets/og-image.png`), plus `robots.txt`, `sitemap.xml`, and a custom `404.html`
 
 ---
 
