@@ -661,3 +661,24 @@ textarea:focus ~ .ripple::after {
 .dark #github .p-5.rounded-2xl:hover{
   box-shadow: 0 18px 55px rgba(0,0,0,0.45);
 }
+
+/* Focus ring rõ ràng cho keyboard */
+:focus-visible{
+  outline: 2px solid rgba(99,102,241,.9);
+  outline-offset: 3px;
+}
+
+/* Tôn trọng Reduced Motion */
+@media (prefers-reduced-motion: reduce){
+  html:focus-within{
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .animate-typing, .animate-slide-in, .animate-slide-in-right, .animate-zoom-in, .animate-pulse, .animate-type{
+    animation: none !important;
+  }
+}
