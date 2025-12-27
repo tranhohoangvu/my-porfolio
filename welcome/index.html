@@ -60,6 +60,10 @@
 
     <p class="welcome-sub">Loading your experience…</p>
 
+    <div class="welcome-progress" aria-hidden="true">
+      <span></span>
+    </div>
+
     <button id="welcome-skip" class="welcome-skip" type="button">Skip</button>
   </main>
 
@@ -89,7 +93,35 @@
         window.location.replace(target);
       };
 
-      const timer = window.setTimeout(goBack, 1600);
+    const DURATION = 2400; // tăng thời gian intro (ms)
+    document.documentElement.style.setProperty("--welcomeDur", DURATION + "ms");
+
+    const startExit = () => {
+    document.body.classList.add("welcome-leave");
+    };
+
+    // chạy exit trước khi redirect ~350ms
+    const exitTimer = window.setTimeout(startExit, Math.max(0, DURATION - 360));
+    const timer = window.setTimeout(goBack, DURATION);
+
+    const cleanupTimers = () => {
+    window.clearTimeout(timer);
+    window.clearTimeout(exitTimer);
+    };
+
+    document.getElementById("welcome-skip")?.addEventListener("click", () => {
+    cleanupTimers();
+    startExit();
+    setTimeout(goBack, 220);
+    });
+
+    document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+        cleanupTimers();
+        startExit();
+        setTimeout(goBack, 220);
+    }
+    });
 
       document.getElementById("welcome-skip")?.addEventListener("click", () => {
         window.clearTimeout(timer);

@@ -1178,3 +1178,83 @@ footer p:last-child{
   }
   .welcome-skip{ transition: none !important; }
 }
+
+/* ===== Extra effects ===== */
+
+/* subtle animated background drift */
+.welcome-body{
+  background-size: 120% 120%;
+  animation: welcomeBg 6s ease-in-out infinite;
+}
+@keyframes welcomeBg{
+  0%,100%{ background-position: 0% 0%; }
+  50%{ background-position: 100% 60%; }
+}
+
+/* floating icons */
+.welcome-icon{
+  animation: welcomeFloat 2.6s ease-in-out infinite;
+}
+.welcome-icon:nth-child(2){ animation-delay: .18s; }
+.welcome-icon:nth-child(3){ animation-delay: .36s; }
+
+@keyframes welcomeFloat{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+}
+
+/* shimmer on gradient title */
+.welcome-title__bottom{
+  background-size: 220% 100%;
+  animation: welcomeShimmer 2.4s ease-in-out infinite;
+}
+@keyframes welcomeShimmer{
+  0%,100%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+}
+
+/* loading bar */
+.welcome-progress{
+  width: min(460px, 92vw);
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+}
+
+.welcome-progress span{
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(99,102,241,.95), rgba(124,58,237,.92), rgba(6,182,212,.9));
+  box-shadow: 0 0 24px rgba(99,102,241,.22);
+  animation: welcomeLoad var(--welcomeDur, 2400ms) cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+@keyframes welcomeLoad{
+  from{ width: 0%; }
+  to{ width: 100%; }
+}
+
+/* exit animation before redirect */
+.welcome-body.welcome-leave .welcome-wrap{
+  opacity: 0;
+  transform: translateY(-6px) scale(0.985);
+  filter: blur(6px);
+  transition: opacity .35s ease, transform .35s ease, filter .35s ease;
+}
+.welcome-wrap{
+  transition: opacity .35s ease, transform .35s ease, filter .35s ease;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .welcome-body{ animation: none !important; }
+  .welcome-icon{ animation: none !important; }
+  .welcome-title__bottom{ animation: none !important; }
+  .welcome-progress span{ animation: none !important; width: 100% !important; }
+  .welcome-body.welcome-leave .welcome-wrap{ transition: none !important; }
+}
