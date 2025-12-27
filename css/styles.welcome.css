@@ -1,0 +1,455 @@
+/* =========================
+   Welcome Intro Screen ( /welcome/ )
+   - shows once per tab (sessionStorage)
+   ========================= */
+.welcome-body{
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  overflow: hidden;
+  font-family: Inter, Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: rgba(255,255,255,0.92);
+  background:
+    radial-gradient(900px circle at 50% 35%, rgba(99,102,241,.22), transparent 55%),
+    radial-gradient(700px circle at 75% 70%, rgba(6,182,212,.14), transparent 60%),
+    linear-gradient(180deg, #0b1220 0%, #07101c 45%, #050814 100%);
+}
+
+.welcome-wrap{
+  width: min(920px, 100%);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.welcome-icons{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+  animation: welcomeFadeUp .65s ease both;
+}
+
+.welcome-icon{
+  width: 66px;
+  height: 66px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,0.92);
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 18px 55px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,255,255,0.06) inset;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-icon::before{
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, rgba(99,102,241,.95), rgba(124,58,237,.9), rgba(6,182,212,.9));
+  opacity: .22;
+  filter: blur(10px);
+}
+
+.welcome-icon svg{
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(46px, 6vw, 76px);
+  animation: welcomeFadeUp .75s ease both;
+  animation-delay: .06s;
+}
+
+.welcome-title__top{
+  display: block;
+  color: rgba(255,255,255,0.92);
+}
+
+.welcome-title__bottom{
+  display: block;
+  background: linear-gradient(90deg, #7c3aed, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.welcome-sub{
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,0.66);
+  animation: welcomeFadeUp .75s ease both;
+  animation-delay: .12s;
+}
+
+.welcome-skip{
+  margin-top: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.20);
+  color: rgba(255,255,255,0.88);
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  animation: welcomeFadeUp .75s ease both;
+  animation-delay: .18s;
+}
+
+.welcome-skip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.28);
+}
+
+.welcome-skip:active{
+  transform: translateY(0);
+  opacity: .95;
+}
+
+@keyframes welcomeFadeUp{
+  from{ opacity: 0; transform: translateY(10px) scale(.98); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .welcome-icons,
+  .welcome-title,
+  .welcome-sub,
+  .welcome-skip{
+    animation: none !important;
+  }
+  .welcome-skip{ transition: none !important; }
+}
+
+/* ===== Extra effects ===== */
+
+/* subtle animated background drift */
+.welcome-body{
+  background-size: 120% 120%;
+  animation: welcomeBg 6s ease-in-out infinite;
+}
+@keyframes welcomeBg{
+  0%,100%{ background-position: 0% 0%; }
+  50%{ background-position: 100% 60%; }
+}
+
+/* floating icons */
+.welcome-icon{
+  animation: welcomeFloat 2.6s ease-in-out infinite;
+}
+.welcome-icon:nth-child(2){ animation-delay: .18s; }
+.welcome-icon:nth-child(3){ animation-delay: .36s; }
+
+@keyframes welcomeFloat{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+}
+
+/* shimmer on gradient title */
+.welcome-title__bottom{
+  background-size: 220% 100%;
+  animation: welcomeShimmer 2.4s ease-in-out infinite;
+}
+@keyframes welcomeShimmer{
+  0%,100%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+}
+
+/* loading bar */
+.welcome-progress{
+  width: min(460px, 92vw);
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+}
+
+.welcome-progress span{
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(99,102,241,.95), rgba(124,58,237,.92), rgba(6,182,212,.9));
+  box-shadow: 0 0 24px rgba(99,102,241,.22);
+  animation: welcomeLoad var(--welcomeDur, 2400ms) cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+@keyframes welcomeLoad{
+  from{ width: 0%; }
+  to{ width: 100%; }
+}
+
+/* exit animation before redirect */
+.welcome-body.welcome-leave .welcome-wrap{
+  opacity: 0;
+  transform: translateY(-6px) scale(0.985);
+  filter: blur(6px);
+  transition: opacity .35s ease, transform .35s ease, filter .35s ease;
+}
+.welcome-wrap{
+  transition: opacity .35s ease, transform .35s ease, filter .35s ease;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .welcome-body{ animation: none !important; }
+  .welcome-icon{ animation: none !important; }
+  .welcome-title__bottom{ animation: none !important; }
+  .welcome-progress span{ animation: none !important; width: 100% !important; }
+  .welcome-body.welcome-leave .welcome-wrap{ transition: none !important; }
+}
+
+/* =========================
+   Welcome: Mobile scaling
+   ========================= */
+@media (max-width: 480px){
+  .welcome-body{
+    padding: 18px;
+  }
+
+  .welcome-wrap{
+    gap: 12px;
+  }
+
+  .welcome-icons{
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .welcome-icon{
+    width: 54px;
+    height: 54px;
+  }
+
+  .welcome-icon svg{
+    width: 24px;
+    height: 24px;
+  }
+
+  .welcome-title{
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.04;
+  }
+
+  .welcome-sub{
+    font-size: 13px;
+  }
+
+  .welcome-progress{
+    width: min(360px, 92vw);
+    height: 9px;
+  }
+
+  .welcome-skip{
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
+
+/* siêu nhỏ (<=360px) */
+@media (max-width: 360px){
+  .welcome-icon{
+    width: 50px;
+    height: 50px;
+  }
+
+  .welcome-title{
+    font-size: 32px;
+  }
+
+  .welcome-progress{
+    width: 92vw;
+  }
+}
+
+/* =========================
+   Welcome: better mobile balance
+   ========================= */
+
+/* dùng svh để tránh lệch do URL bar trên mobile */
+@supports (height: 100svh){
+  .welcome-body{
+    min-height: 100svh;
+  }
+}
+
+@media (max-width: 520px){
+  .welcome-body{
+    padding: 18px 16px;
+    overflow: hidden;
+  }
+
+  /* kéo cụm content lên 1 chút cho cân */
+  .welcome-wrap{
+    gap: 12px;
+    transform: translateY(-6svh);
+  }
+
+  .welcome-icons{
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .welcome-icon{
+    width: 56px;
+    height: 56px;
+  }
+  .welcome-icon svg{
+    width: 24px;
+    height: 24px;
+  }
+
+  /* cân title: bớt to, wrap đẹp hơn */
+  .welcome-title{
+    font-size: clamp(34px, 10vw, 46px);
+    line-height: 1.04;
+    max-width: 16ch;     /* giúp line break cân hơn */
+    text-wrap: balance;  /* trình duyệt mới */
+  }
+
+  .welcome-sub{
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .welcome-progress{
+    width: min(360px, 92vw);
+    height: 9px;
+    margin-top: 2px;
+  }
+
+  .welcome-skip{
+    margin-top: 6px;
+    padding: 11px 18px;
+    min-width: 120px;    /* nút “đã tay” hơn */
+    font-size: 12px;
+  }
+}
+
+/* máy siêu nhỏ */
+@media (max-width: 360px){
+  .welcome-wrap{ transform: translateY(-7svh); }
+  .welcome-title{ font-size: 32px; max-width: 15ch; }
+  .welcome-icon{ width: 52px; height: 52px; }
+}
+
+.welcome-body::before{
+  content:"";
+  position: fixed;
+  inset:-20%;
+  pointer-events:none;
+  background:
+    radial-gradient(700px circle at 30% 35%, rgba(124,58,237,.22), transparent 60%),
+    radial-gradient(800px circle at 70% 70%, rgba(6,182,212,.14), transparent 62%),
+    radial-gradient(600px circle at 55% 40%, rgba(99,102,241,.18), transparent 60%);
+  filter: blur(22px);
+  opacity: .85;
+  transform: translate3d(0,0,0);
+  animation: welcomeAurora 7s ease-in-out infinite;
+}
+
+@keyframes welcomeAurora{
+  0%,100%{ transform: translate3d(-2%, -1%, 0) scale(1.02); }
+  50%{ transform: translate3d(2%, 1.5%, 0) scale(1.06); }
+}
+
+.welcome-body::after{
+  content:"";
+  position: fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(1px 1px at 12% 20%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,.14), transparent 60%),
+    radial-gradient(1px 1px at 55% 30%, rgba(255,255,255,.16), transparent 60%),
+    radial-gradient(1px 1px at 72% 52%, rgba(255,255,255,.12), transparent 60%),
+    radial-gradient(1px 1px at 88% 28%, rgba(255,255,255,.10), transparent 60%),
+    radial-gradient(1px 1px at 18% 80%, rgba(255,255,255,.12), transparent 60%);
+  opacity: .55;
+  animation: dustDrift 9s ease-in-out infinite;
+}
+
+@keyframes dustDrift{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
+}
+
+.welcome-title__bottom{
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-title__bottom::after{
+  content:"";
+  position:absolute;
+  inset:-20% -35%;
+  background: linear-gradient(115deg,
+    transparent 40%,
+    rgba(255,255,255,.35) 52%,
+    transparent 65%);
+  transform: translateX(-45%) rotate(10deg);
+  opacity: .0;
+  animation: titleSweep 2.4s ease-in-out infinite;
+}
+
+@keyframes titleSweep{
+  0%{ opacity: 0; transform: translateX(-55%) rotate(10deg); }
+  35%{ opacity: .85; }
+  60%{ opacity: 0; transform: translateX(45%) rotate(10deg); }
+  100%{ opacity: 0; transform: translateX(45%) rotate(10deg); }
+}
+
+.welcome-progress{
+  position: relative;
+}
+
+.welcome-progress span{
+  position: relative;
+}
+
+/* spark ở đầu progress */
+.welcome-progress span::after{
+  content:"";
+  position:absolute;
+  top: 50%;
+  right: -10px;
+  width: 26px;
+  height: 18px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,.75), rgba(255,255,255,0) 65%);
+  filter: blur(1px);
+  opacity: .9;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .welcome-body::before,
+  .welcome-body::after,
+  .welcome-title__bottom::after{
+    animation: none !important;
+  }
+}
