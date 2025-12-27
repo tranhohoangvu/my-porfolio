@@ -777,3 +777,259 @@ textarea:focus ~ .ripple::after {
     animation: none !important;
   }
 }
+
+/* =========================
+   Contact: Connect cards (spicy, not bland)
+   - Works with current HTML (.connect-panel .contact-link-card ...)
+   ========================= */
+
+/* Panel wrapper (optional but makes it premium) */
+.connect-panel{
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+.connect-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(99,102,241,.95), rgba(124,58,237,.9), rgba(6,182,212,.9));
+  opacity: .55;
+  pointer-events:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Base card */
+.contact-link-card{
+  /* default accent */
+  --accent1: #6366f1; /* indigo */
+  --accent2: #06b6d4; /* cyan */
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 16px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+
+  /* glass */
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(15,23,42,0.16);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(255,255,255,0.35) inset;
+
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+  overflow: hidden;
+}
+
+/* Gradient border layer */
+.contact-link-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  opacity: 0;
+  pointer-events:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition: opacity .22s ease;
+}
+
+/* Shine streak (hover) */
+.contact-link-card::after{
+  content:"";
+  position:absolute;
+  inset:-40% -30%;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.40) 50%, transparent 65%);
+  transform: translateX(-40%) rotate(10deg);
+  opacity: 0;
+  pointer-events:none;
+  transition: opacity .22s ease, transform .45s ease;
+}
+
+.contact-link-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(99,102,241,.35);
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.18),
+    0 0 0 1px rgba(255,255,255,0.45) inset;
+  background: rgba(255,255,255,0.78);
+}
+
+.contact-link-card:hover::before{ opacity: 1; }
+.contact-link-card:hover::after{
+  opacity: .9;
+  transform: translateX(35%) rotate(10deg);
+}
+
+/* Dark mode */
+.dark .contact-link-card{
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    0 14px 45px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+.dark .contact-link-card:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(99,102,241,.35);
+  box-shadow:
+    0 18px 65px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+
+/* Icon bubble: có “độ chơi” + glow theo accent */
+.contact-link-icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  color: var(--accent1);
+  background:
+    radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.65), rgba(255,255,255,0.0) 60%),
+    linear-gradient(135deg, rgba(99,102,241,0.20), rgba(6,182,212,0.14));
+  border: 1px solid rgba(99,102,241,0.22);
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.18),
+    0 0 0 1px rgba(255,255,255,0.35) inset;
+
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.contact-link-card:hover .contact-link-icon{
+  transform: translateY(-1px) scale(1.02);
+  border-color: rgba(99,102,241,0.45);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.22),
+    0 0 18px rgba(99,102,241,0.25);
+}
+
+.dark .contact-link-icon{
+  background:
+    radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.14), rgba(255,255,255,0.0) 60%),
+    linear-gradient(135deg, rgba(99,102,241,0.18), rgba(6,182,212,0.12));
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+/* Text */
+.contact-link-title{
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: .01em;
+}
+
+.contact-link-sub{
+  font-size: 12px;
+  opacity: .72;
+  margin-top: 4px;
+  letter-spacing: .02em;
+}
+
+/* Make the whole card feel "clickable" on keyboard too */
+.contact-link-card:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(99,102,241,.35),
+    0 18px 55px rgba(0,0,0,0.18);
+}
+
+/* =========================
+   Accent per platform (no HTML changes)
+   ========================= */
+.contact-link-card[href^="mailto:"]{
+  --accent1: #a855f7; /* purple */
+  --accent2: #6366f1; /* indigo */
+}
+
+.contact-link-card[href*="github.com"]{
+  --accent1: #94a3b8; /* slate */
+  --accent2: #6366f1; /* indigo */
+}
+
+.contact-link-card[href*="linkedin.com"]{
+  --accent1: #38bdf8; /* sky */
+  --accent2: #6366f1; /* indigo */
+}
+
+.contact-link-card[href*="facebook.com"]{
+  --accent1: #3b82f6; /* blue */
+  --accent2: #06b6d4; /* cyan */
+}
+
+.contact-link-card[href*="youtube.com"]{
+  --accent1: #ef4444; /* red */
+  --accent2: #f97316; /* orange */
+}
+
+.contact-link-card[href*="instagram.com"]{
+  --accent1: #ec4899; /* pink */
+  --accent2: #f97316; /* orange */
+}
+
+/* Reduced motion friendly */
+@media (prefers-reduced-motion: reduce){
+  .contact-link-card,
+  .contact-link-card::before,
+  .contact-link-card::after,
+  .contact-link-icon{
+    transition: none !important;
+  }
+}
+
+/* Tăng khoảng cách giữa các contact cards */
+.connect-panel .grid{
+  gap: 18px !important;          /* thử 18–22px */
+}
+
+@media (min-width: 640px){
+  .connect-panel .grid{
+    column-gap: 18px !important; /* khoảng cách ngang */
+    row-gap: 16px !important;    /* khoảng cách dọc */
+  }
+}
+
+footer{
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+footer p{
+  line-height: 1.7;
+}
+
+footer p:first-child{
+  opacity: .82;      /* tagline */
+}
+
+footer p:last-child{
+  opacity: .95;      /* copyright */
+}

@@ -619,20 +619,102 @@
 
       <div class="flex flex-col md:flex-row gap-12">
         <div class="md:w-1/2">
-          <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 animate-slide-in" data-i18n="contact_intro">
+          <!-- <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 animate-slide-in" data-i18n="contact_intro">
             Hãy liên hệ với tôi qua email hoặc các nền tảng sau:
-          </p>
+          </p> -->
 
-          <div class="space-y-6">
-            <p><strong data-i18n="contact_email">Email:</strong>
-              <a href="mailto:hoangvu2k4cmg@gmail.com" class="text-indigo-600 dark:text-indigo-400 hover:underline">hoangvu2k4cmg@gmail.com</a>
-            </p>
-            <p><strong data-i18n="contact_github">GitHub:</strong>
-              <a href="https://github.com/tranhohoangvu" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline">github.com/tranhohoangvu</a>
-            </p>
-            <p><strong data-i18n="contact_linkedin">LinkedIn:</strong>
-              <a href="https://linkedin.com/in/tranhohoangvu/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline">linkedin.com/in/tranhohoangvu/</a>
-            </p>
+          <div class="connect-panel p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/70 dark:border-gray-700/70">
+            <h3 class="text-lg font-extrabold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-600/10 dark:bg-white/10 border border-indigo-600/20 dark:border-white/15">
+                <!-- icon -->
+                <svg class="w-5 h-5 text-indigo-600 dark:text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8a2 2 0 0 0-2-2H7l-4 4v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 6V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </span>
+              <span data-i18n="connect_title">Let’s connect!</span>
+            </h3>
+
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Email (full width) -->
+              <a href="mailto:hoangvu2k4cmg@gmail.com" class="contact-link-card sm:col-span-2" aria-label="Gửi email cho Trần Hồ Hoàng Vũ">
+                <span class="contact-link-icon">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12a2 2 0 0 1-2 2H4c-1.1 0-2-.9-2-2V6a2 2 0 0 1 2-2Zm8 7 8-5H4l8 5Zm0 2.5-8-5V18h16v-9.5l-8 5Z"/>
+                  </svg>
+                </span>
+                <span class="contact-link-text">
+                  <span class="contact-link-title">Email</span>
+                  <span class="contact-link-sub">hoangvu2k4cmg@gmail.com</span>
+                </span>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/tranhohoangvu" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="GitHub của Trần Hồ Hoàng Vũ">
+                <span class="contact-link-icon">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.64 2 12.29c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.63-3.37-1.4-3.37-1.4-.45-1.18-1.1-1.49-1.1-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.58 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.16-4.56-5.17 0-1.14.39-2.08 1.03-2.82-.1-.25-.45-1.29.1-2.7 0 0 .84-.28 2.75 1.07a9.21 9.21 0 0 1 5 0c1.91-1.35 2.75-1.07 2.75-1.07.55 1.41.2 2.45.1 2.7.64.74 1.03 1.68 1.03 2.82 0 4.02-2.34 4.9-4.57 5.15.36.32.68.95.68 1.91 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.29 10.29 0 0 0 22 12.29C22 6.64 17.52 2 12 2Z"/>
+                  </svg>
+                </span>
+                <span class="contact-link-text">
+                  <span class="contact-link-title">GitHub</span>
+                  <span class="contact-link-sub">@tranhohoangvu</span>
+                </span>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/tranhohoangvu/" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="LinkedIn của Trần Hồ Hoàng Vũ">
+                <span class="contact-link-icon">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5S.02 4.88.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5ZM0 8h5v16H0V8Zm7.5 0H12v2.2h.07c.62-1.17 2.14-2.4 4.41-2.4 4.72 0 5.59 3.11 5.59 7.15V24h-5v-7.99c0-1.9-.03-4.34-2.65-4.34-2.65 0-3.06 2.07-3.06 4.2V24h-5V8Z"/>
+                  </svg>
+                </span>
+                <span class="contact-link-text">
+                  <span class="contact-link-title">LinkedIn</span>
+                  <span class="contact-link-sub">/in/tranhohoangvu</span>
+                </span>
+              </a>
+
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/TranHoHoangVu" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="Facebook của Trần Hồ Hoàng Vũ">
+                <span class="contact-link-icon">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22 12.07C22 6.58 17.52 2 12 2S2 6.58 2 12.07C2 17.08 5.66 21.2 10.44 21.95v-6.28h-3.14v-2.7h3.14v-2.05c0-3.1 1.84-4.81 4.65-4.81 1.35 0 2.75.24 2.75.24v3.01h-1.55c-1.53 0-2.01.95-2.01 1.92v2.22h3.41l-.55 2.7h-2.86V22C18.34 21.2 22 17.08 22 12.07z"/>
+                  </svg>
+                </span>
+                <span class="contact-link-text">
+                  <span class="contact-link-title">Facebook</span>
+                  <!-- <span class="contact-link-sub">Let’s connect</span> -->
+                  <span class="contact-link-sub">/TranHoHoangVu</span>
+                </span>
+              </a>
+
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/@tranhohoangvu" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="YouTube của Trần Hồ Hoàng Vũ">
+                <span class="contact-link-icon">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.5 6.2a3.04 3.04 0 0 0-2.14-2.16C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.36.54A3.04 3.04 0 0 0 .5 6.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.8 3.04 3.04 0 0 0 2.14 2.16C4.5 20.5 12 20.5 12 20.5s7.5 0 9.36-.54a3.04 3.04 0 0 0 2.14-2.16A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.8ZM9.75 15.5v-7l6.25 3.5-6.25 3.5Z"/>
+                  </svg>
+                </span>
+                <span class="contact-link-text">
+                  <span class="contact-link-title">YouTube</span>
+                  <span class="contact-link-sub">@tranhohoangvu</span>
+                </span>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/_hoawq.vuz_/" target="_blank" rel="noopener noreferrer" class="contact-link-card" aria-label="Instagram của Trần Hồ Hoàng Vũ">
+                <span class="contact-link-icon">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm4.38-.63a1.13 1.13 0 1 1 0 2.25 1.13 1.13 0 0 1 0-2.25Z"/>
+                  </svg>
+                </span>
+                <span class="contact-link-text">
+                  <span class="contact-link-title">Instagram</span>
+                  <span class="contact-link-sub">_hoawq.vuz_</span>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -690,27 +772,7 @@
     <p class="text-lg relative inline-block">
       <span class="sparkle" data-i18n="footer_tagline">Tạo giá trị qua mã nguồn - Trần Hồ Hoàng Vũ</span>
     </p>
-    <p class="mt-2" data-i18n="footer_rights">© 2025 Trần Hồ Hoàng Vũ. All rights reserved.</p>
-
-    <div class="mt-4 space-x-6">
-      <a href="https://github.com/tranhohoangvu" target="_blank"
-         class="relative hover:text-indigo-400 transition transform hover:scale-110">
-        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.64 2 12.29c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.63-3.37-1.4-3.37-1.4-.45-1.18-1.1-1.49-1.1-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.58 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.16-4.56-5.17 0-1.14.39-2.08 1.03-2.82-.1-.25-.45-1.29.1-2.7 0 0 .84-.28 2.75 1.07a9.21 9.21 0 0 1 5 0c1.91-1.35 2.75-1.07 2.75-1.07.55 1.41.2 2.45.1 2.7.64.74 1.03 1.68 1.03 2.82 0 4.02-2.34 4.9-4.57 5.15.36.32.68.95.68 1.91 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.29 10.29 0 0 0 22 12.29C22 6.64 17.52 2 12 2Z"/>
-        </svg>
-        GitHub
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span>
-      </a>
-
-      <a href="https://linkedin.com/in/tranhohoangvu/" target="_blank"
-         class="relative hover:text-indigo-400 transition transform hover:scale-110">
-        <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
-        </svg>
-        LinkedIn
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-indigo-600 to-purple-600 transition-all duration-300 hover:w-full"></span>
-      </a>
-    </div>
+    <p class="mt-2" data-i18n="footer_rights">© 2025 Bản quyền thuộc về Trần Hồ Hoàng Vũ.</p>
   </footer>
 
   <!-- Back to Top Button (giữ class gradient, CSS sẽ override để không cần sửa HTML) -->

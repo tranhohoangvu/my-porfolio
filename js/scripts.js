@@ -214,9 +214,7 @@ const I18N = {
 
     contact_title: "Liên hệ",
     contact_intro: "Hãy liên hệ với tôi qua email hoặc các nền tảng sau:",
-    contact_email: "Email:",
-    contact_github: "GitHub:",
-    contact_linkedin: "LinkedIn:",
+    connect_title: "Kết nối với tôi nhé!",
     form_name: "Họ tên: *",
     form_email: "Email: *",
     form_message: "Tin nhắn: *",
@@ -229,7 +227,7 @@ const I18N = {
     form_btn_sending: "Đang gửi...",
 
     footer_tagline: "Tạo giá trị qua mã nguồn - Trần Hồ Hoàng Vũ",
-    footer_rights: "© 2025 Trần Hồ Hoàng Vũ. All rights reserved.",
+    footer_rights: "© 2025 Bản quyền thuộc về Trần Hồ Hoàng Vũ.",
   },
 
   en: {
@@ -299,9 +297,7 @@ const I18N = {
 
     contact_title: "Contact",
     contact_intro: "Feel free to reach out via email or these platforms:",
-    contact_email: "Email:",
-    contact_github: "GitHub:",
-    contact_linkedin: "LinkedIn:",
+    connect_title: "Let’s connect!",
     form_name: "Full name: *",
     form_email: "Email: *",
     form_message: "Message: *",
