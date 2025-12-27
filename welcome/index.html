@@ -55,10 +55,10 @@
 
     <h1 class="welcome-title">
       <span class="welcome-title__top">Welcome To</span>
-      <span class="welcome-title__bottom">Portfolio Website</span>
+      <span class="welcome-title__bottom">My Portfolio Website</span>
     </h1>
 
-    <p class="welcome-sub">Loading your experience…</p>
+    <p class="welcome-sub">Loading…</p>
 
     <div class="welcome-progress" aria-hidden="true">
       <span></span>
@@ -68,73 +68,57 @@
   </main>
 
   <script>
-    (() => {
-      const KEY_SEEN = "welcomeSeen";
-      const KEY_RETURN = "welcomeReturn";
+(() => {
+  const KEY_SEEN = "welcomeSeen";
+  const KEY_RETURN = "welcomeReturn";
 
-      const fromStore = () => {
-        try { return sessionStorage.getItem(KEY_RETURN); } catch (e) { return null; }
-      };
+  const fromStore = () => {
+    try { return sessionStorage.getItem(KEY_RETURN); } catch (e) { return null; }
+  };
 
-      const computeBase = () => {
-        // /my-portfolio/welcome/ => /my-portfolio/
-        return window.location.pathname.replace(/\/welcome\/?$/, "/");
-      };
+  const computeBase = () => {
+    // /my-portfolio/welcome/ => /my-portfolio/
+    return window.location.pathname.replace(/\/welcome\/?$/, "/");
+  };
 
-      const goBack = () => {
-        let target = fromStore();
-        if (!target) target = computeBase();
+  const goBack = () => {
+    let target = fromStore();
+    if (!target) target = computeBase();
 
-        try {
-          sessionStorage.setItem(KEY_SEEN, "1");
-          sessionStorage.removeItem(KEY_RETURN);
-        } catch (e) {}
+    try {
+      sessionStorage.setItem(KEY_SEEN, "1");
+      sessionStorage.removeItem(KEY_RETURN);
+    } catch (e) {}
 
-        window.location.replace(target);
-      };
+    window.location.replace(target);
+  };
 
-    const DURATION = 10000; // tăng thời gian intro (ms)
-    document.documentElement.style.setProperty("--welcomeDur", DURATION + "ms");
+  const DURATION = 5000; // ms
+  document.documentElement.style.setProperty("--welcomeDur", DURATION + "ms");
 
-    const startExit = () => {
-    document.body.classList.add("welcome-leave");
-    };
+  const startExit = () => document.body.classList.add("welcome-leave");
 
-    // chạy exit trước khi redirect ~350ms
-    const exitTimer = window.setTimeout(startExit, Math.max(0, DURATION - 360));
-    const timer = window.setTimeout(goBack, DURATION);
+  // Exit trước khi redirect ~360ms
+  const exitTimer = window.setTimeout(startExit, Math.max(0, DURATION - 360));
+  const timer = window.setTimeout(goBack, DURATION);
 
-    const cleanupTimers = () => {
+  const cleanup = () => {
     window.clearTimeout(timer);
     window.clearTimeout(exitTimer);
-    };
+  };
 
-    document.getElementById("welcome-skip")?.addEventListener("click", () => {
-    cleanupTimers();
+  const skipNow = () => {
+    cleanup();
     startExit();
     setTimeout(goBack, 220);
-    });
+  };
 
-    document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
-        cleanupTimers();
-        startExit();
-        setTimeout(goBack, 220);
-    }
-    });
+  document.getElementById("welcome-skip")?.addEventListener("click", skipNow);
 
-      document.getElementById("welcome-skip")?.addEventListener("click", () => {
-        window.clearTimeout(timer);
-        goBack();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
-          window.clearTimeout(timer);
-          goBack();
-        }
-      });
-    })();
-  </script>
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.key === "Enter" || e.key === " ") skipNow();
+  });
+})();
+</script>
 </body>
 </html>
