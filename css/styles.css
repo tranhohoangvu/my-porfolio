@@ -48,6 +48,27 @@ body {
   border: 1px solid rgba(17,24,39,0.18);
   color: rgba(17,24,39,0.92);
   backdrop-filter: blur(8px);
+
+  /* Hide by default */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.98);
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility 0s linear .18s;
+}
+
+#back-to-top.is-visible{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility 0s;
 }
 
 #back-to-top:hover{

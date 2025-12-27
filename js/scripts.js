@@ -457,13 +457,20 @@ window.addEventListener("scroll", () => {
 });
 
 // =======================
-// Back to Top Button
+// Back to Top Button (hide on load + show after scroll)
 // =======================
 const backToTop = document.getElementById("back-to-top");
+
 if (backToTop) {
-  window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-  });
+  const toggleBackToTop = () => {
+    if (window.scrollY > 300) backToTop.classList.add("is-visible");
+    else backToTop.classList.remove("is-visible");
+  };
+
+  // Set đúng trạng thái ngay khi load (không cần đợi scroll)
+  toggleBackToTop();
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
 
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
